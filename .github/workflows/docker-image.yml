@@ -23,5 +23,5 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Push docker image
+    - name: Push docker image updatev1
       run: docker push shivdotjs/mlops:1.0.0
