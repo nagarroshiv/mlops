@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build --build-arg PIP_EXTRA_INDEX_URL=https://ZzHEn6GN4KDJqpEefbKj:@pypi.fury.io/himanshuatnagarro . --file Dockerfile --tag shivdotjs/mlops:$(date +%s)
+      run: docker build --build-arg PIP_EXTRA_INDEX_URL=https://ZzHEn6GN4KDJqpEefbKj:@pypi.fury.io/himanshuatnagarro . --file Dockerfile --tag shivdotjs/mlops:1.0.0
     - name: List docker images
       run: docker images
     - name: Login to docker hub to push image build
@@ -23,4 +23,5 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-      run: docker push shivdotjs/mlops
+    - name: Push docker image
+      run: docker push shivdotjs/mlops:1.0.0
