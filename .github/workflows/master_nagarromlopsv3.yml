@@ -26,7 +26,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Push docker image updatev1
-      run: docker push shivdotjs/mlops:${{ github.sha }}
+      run: docker push shivdotjs/mlops:1.0.0
 
   deploy:
     runs-on: ubuntu-latest
@@ -43,4 +43,4 @@ jobs:
         app-name: 'nagarromlopsv3'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_710346f85b2e4fd282d10f1cf7b72cc4 }}
-        images: 'index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/shivdotjs/mlops:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/mlops:1.0.0'
