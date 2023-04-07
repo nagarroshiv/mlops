@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build --build-arg PIP_EXTRA_INDEX_URL=https://ZzHEn6GN4KDJqpEefbKj:@pypi.fury.io/himanshuatnagarro . --file Dockerfile --tag shivdotjs/mlops:1.0.0
+      run: docker build --build-arg PIP_EXTRA_INDEX_URL=https://ZzHEn6GN4KDJqpEefbKj:@pypi.fury.io/himanshuatnagarro . --file Dockerfile --tag shivdotjs/mlops:${{ github.sha }}
     - name: List docker images
       run: docker images
     - name: Login to docker hub to push image build
@@ -26,7 +26,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Push docker image updatev1
-      run: docker push shivdotjs/mlops:1.0.0
+      run: docker push shivdotjs/mlops:${{ github.sha }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -43,4 +43,4 @@ jobs:
         app-name: 'nagarromlopsv3'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_710346f85b2e4fd282d10f1cf7b72cc4 }}
-        images: 'index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/mlops:1.0.0'
+        images: 'index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/mlops:${{ github.sha }}'
