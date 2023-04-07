@@ -43,4 +43,4 @@ jobs:
         app-name: 'containerisedfastapideployment'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_4f5d8616f2e44d0cb374db1d24c404b8 }}
-        images: 'ndex.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/mlops:1.0.0'
+        images: 'index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/mlops:1.0.0'
