@@ -11,13 +11,15 @@ on:
 
 jobs:
   test:
-    runs-on: python 3.9
-    
+    runs-on: ubuntu-latest
     steps:
-    - name: Install Tox 3
-      run: pip install tox==3.0.0
-    - name: run tox
-      run: tox
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: pip install -r /opt/house-prices-api/requirements.txt
     
   build:
 
