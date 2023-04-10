@@ -10,10 +10,19 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    runs-on: python 3.9
+    
+    steps:
+    - name: Install Tox 3
+    - run: pip install tox==3.0.0
+    - name: run tox
+    - run: tox
+    
   build:
 
     runs-on: ubuntu-latest
-
+    needs: test
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image.
@@ -30,7 +39,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+        needs: test
     environment:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
