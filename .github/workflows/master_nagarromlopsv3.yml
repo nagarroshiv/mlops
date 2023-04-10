@@ -29,12 +29,6 @@ jobs:
       run: pip install -r house-prices-api/requirements.txt
     - name: Install Tox
       run: pip install tox==3.0.0
-    - name: Go to project
-      run: cd house-prices-api
-    - name: Show project files
-      run: ls
-    - name: Go to project
-      run: cd house-prices-api
     - name: Run Tox
       run: tox -c house-prices-api/tox.ini
     
