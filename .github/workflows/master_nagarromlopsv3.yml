@@ -34,7 +34,7 @@ jobs:
     - name: Show project files
       run: ls
     - name: Run Tox
-      run: tox
+      run: tox house-prices-api
     
   build:
 
