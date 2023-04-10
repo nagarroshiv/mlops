@@ -20,6 +20,7 @@ jobs:
     - name: Show directory
       run: echo $PWD
     - name: Show project files
+      run: ls
     - name: Upgrade pip
       run: python -m pip install --upgrade pip
     - name: Install dependencies
