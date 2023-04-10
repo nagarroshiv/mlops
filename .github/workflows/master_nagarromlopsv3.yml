@@ -27,6 +27,8 @@ jobs:
       run: python -m pip install --upgrade pip
     - name: Install dependencies
       run: pip install -r house-prices-api/requirements.txt
+    - name: Run Tox
+      run: tox
     
   build:
 
