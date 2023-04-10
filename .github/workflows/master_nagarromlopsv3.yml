@@ -36,7 +36,7 @@ jobs:
     - name: Go to project
       run: cd house-prices-api
     - name: Run Tox
-      run: tox
+      run: tox -c house-prices-api/tox.ini
     
   build:
 
