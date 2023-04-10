@@ -18,7 +18,7 @@ jobs:
       with:
         python-version: '3.9'
     - name: Install dependencies
-      run: pip install -r /opt/house-prices-api/requirements.txt
+      run: ls
     
   build:
 
