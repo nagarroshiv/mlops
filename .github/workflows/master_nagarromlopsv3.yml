@@ -31,6 +31,8 @@ jobs:
       run: pip install tox==3.0.0
     - name: Go to project
       run: cd house-prices-api
+    - name: Show project files
+      run: ls
     - name: Run Tox
       run: tox
     
